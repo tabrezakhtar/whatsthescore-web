@@ -1,0 +1,37 @@
+import React from 'react';
+import { shallow } from 'enzyme';
+import Players from './players';
+import CurrentSet from './current-set';
+import CompletedSet from './completed-set';
+import ScoreBoard from './index';
+
+test('displays score for each player', () => {
+  const score = {
+    games: '1-1'
+  }
+  const wrapper = shallow(<ScoreBoard score={score} />);
+
+  expect(wrapper.containsMatchingElement(
+    <div className="scoreboard">
+      <Players />
+      <div className="completed-set-container"></div>
+      <CurrentSet games={score.games}/>
+    </div>
+  )).toEqual(true);
+});
+
+test('displays completed set along with the score', () => {
+  const score = {
+    games: '1-1',
+    sets: ['6-1']
+  }
+  const wrapper = shallow(<ScoreBoard score={score} />);
+
+  expect(wrapper.containsMatchingElement(
+    <div className="scoreboard">
+      <Players />
+      <div className="completed-set-container"><CompletedSet set={score.sets[0]}/></div>
+      <CurrentSet games={score.games}/>
+    </div>
+  )).toEqual(true);
+});

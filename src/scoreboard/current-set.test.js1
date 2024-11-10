@@ -1,0 +1,21 @@
+import React from 'react';
+import { shallow } from 'enzyme';
+import CurrentSet from './current-set';
+
+test('displays the games for each player', () => {
+  const score = {
+    games: '3-2'
+  }
+  const wrapper = shallow(<CurrentSet games={score.games} />);
+
+  expect(wrapper.containsMatchingElement(
+    <div className="set">
+      <div>
+        3
+      </div>
+      <div>
+        2
+      </div>
+    </div>
+  )).toEqual(true);
+});

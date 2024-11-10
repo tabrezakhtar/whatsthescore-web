@@ -1,0 +1,31 @@
+import React from 'react';
+import { connect } from 'react-redux'
+
+function Hamburger({selected, toggleMenu}) {
+  const isSelected = selected.selected ? ' is-active' : '';
+
+  function burgerClick() {
+    toggleMenu(!selected.selected);
+  }
+
+  return (
+    <button className={'hamburger hamburger--slider' + isSelected} type="button" onClick={burgerClick}>
+      <span className="hamburger-box">
+      <span className="hamburger-inner"></span>
+      </span>
+    </button>
+  )
+}
+
+const mapStateToProps = state => ({
+  selected: state.selected
+})
+
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleMenu: selected => dispatch({type: 'TOGGLE_MENU', payload: selected})
+  }
+}
+
+export const HamburgerRaw = Hamburger;
+export default connect(mapStateToProps, mapDispatchToProps)(Hamburger)

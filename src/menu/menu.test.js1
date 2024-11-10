@@ -1,0 +1,28 @@
+import React from 'react';
+import { shallow } from 'enzyme';
+import { NavLink } from 'react-router-dom'
+import { MenuRaw } from './index';
+
+test('when the burger menu is not selected', () => {
+  const wrapper = shallow(<MenuRaw selected={false} />);
+
+  expect(wrapper.containsMatchingElement(
+    <ul className={'header__menu'}>
+      <li className="menu__item"><NavLink exact activeClassName="header__menu-active" to="/">Home</NavLink></li>
+      <li className="menu__item"><NavLink exact activeClassName="header__menu-active" to="/matches">Matches</NavLink></li>
+      <li className="menu__item"><NavLink exact activeClassName="header__menu-active"to="/about">About</NavLink></li>
+    </ul>
+  )).toEqual(true);
+});
+
+test('when the burger menu is selected', () => {
+  const wrapper = shallow(<MenuRaw selected={{selected: true}} />);
+
+  expect(wrapper.containsMatchingElement(
+    <ul className={'header__menu showMenu'}>
+      <li className="menu__item"><NavLink exact activeClassName="header__menu-active" to="/">Home</NavLink></li>
+      <li className="menu__item"><NavLink exact activeClassName="header__menu-active" to="/matches">Matches</NavLink></li>
+      <li className="menu__item"><NavLink exact activeClassName="header__menu-active"to="/about">About</NavLink></li>
+    </ul>
+  )).toEqual(true);
+});

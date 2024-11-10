@@ -1,0 +1,18 @@
+import React from 'react';
+import { shallow } from 'enzyme';
+import Players from './players';
+
+test('displays the players', () => {
+  const wrapper = shallow(<Players />);
+
+  expect(wrapper.containsMatchingElement(
+    <div className="players">
+      <div>
+        Player1
+      </div>
+      <div>
+        Player2
+      </div>
+    </div>
+  )).toEqual(true);
+});

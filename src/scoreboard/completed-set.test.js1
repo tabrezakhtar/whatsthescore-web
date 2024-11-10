@@ -1,0 +1,37 @@
+import React from 'react';
+import { shallow } from 'enzyme';
+import CompletedSet from './completed-set';
+
+test('display current running scorefor sets', () => {
+  const set = '2-1';
+  const wrapper = shallow(<CompletedSet set={set}/>);
+
+  expect(wrapper.containsMatchingElement(
+    <div className="set set-completed">
+      <div>
+        2 <span></span>
+      </div>
+      <div>
+        1 <span></span>
+      </div>
+    </div>
+  )).toEqual(true);
+});
+
+test('if set won on tiebreak, display tiebreak score', () => {
+  const score = {
+    games: '7-6 (7-1)'
+  }
+  const wrapper = shallow(<CompletedSet set={score.games} />);
+
+  expect(wrapper.containsMatchingElement(
+    <div className="set set-completed">
+      <div>
+        7 <span>7</span>
+      </div>
+      <div>
+        6 <span>1</span>
+      </div>
+    </div>
+  )).toEqual(true);
+});

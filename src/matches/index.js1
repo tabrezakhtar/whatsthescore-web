@@ -1,0 +1,33 @@
+import React from 'react'
+import { connect } from 'react-redux'
+import ScoreBoard from '../scoreboard';
+
+function Matches({matches}) {
+  let message = '';
+  if (!matches.completedMatches.length) {
+    message = <h3>There are no completed matches.</h3>
+  }
+  return (
+    <div className="matches">
+      {message}
+      <div className="scoreContainer">
+        {
+          matches.completedMatches.map(score => {
+            return <div className="scoreboard-border">
+              <div>{new Date(score.startTime).toDateString()}</div>
+              <div>{new Date(score.startTime).toLocaleTimeString()} to {new Date(score.endTime).toLocaleTimeString()}</div>
+              <ScoreBoard score={score} />
+            </div>
+          })
+        }
+      </div>
+    </div>
+  )
+}
+
+const mapStateToProps = state => ({
+  matches: state.matches
+})
+
+export const MatchesRaw = Matches;
+export default connect(mapStateToProps)(Matches)

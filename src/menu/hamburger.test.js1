@@ -1,0 +1,42 @@
+import React from 'react';
+import { shallow } from 'enzyme';
+import { HamburgerRaw } from './hamburger';
+
+describe ('when the burger menu is not selected', () => {
+  test('the menu displays a burger icon', () => {
+    const wrapper = shallow(<HamburgerRaw selected={false} />);
+  
+    expect(wrapper.containsMatchingElement(
+      <button className={'hamburger hamburger--slider'} type="button">
+        <span className="hamburger-box">
+          <span className="hamburger-inner"></span>
+        </span>
+    </button>
+    )).toEqual(true);
+  });
+});
+
+describe ('when the burger menu is selected', () => {
+  test('the menu displays a close icon', () => {
+    const wrapper = shallow(<HamburgerRaw selected={{selected: true}} />);
+  
+    expect(wrapper.containsMatchingElement(
+      <button className={'hamburger hamburger--slider is-active'} type="button">
+        <span className="hamburger-box">
+          <span className="hamburger-inner"></span>
+        </span>
+      </button>
+    )).toEqual(true);
+  });
+});
+
+describe ('when the burger menu is clicked', () => {
+  test('the toggleMenu function is called', () => {
+    const toggleMenuMock = jest.fn();
+
+    const wrapper = shallow(<HamburgerRaw selected={false} toggleMenu={toggleMenuMock}/>);
+    wrapper.find('.hamburger').simulate('click');
+  
+    expect(toggleMenuMock).toHaveBeenCalledWith(true);
+  });
+});

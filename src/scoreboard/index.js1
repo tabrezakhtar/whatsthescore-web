@@ -1,0 +1,19 @@
+import React from 'react';
+import Players from './players';
+import CurrentSet from './current-set';
+import CompletedSet from './completed-set';
+
+function ScoreBoard({score}) {
+
+  const completedSets = score.sets ? score.sets.map(set => <CompletedSet set={set}/>): null;
+
+  return (
+    <div className="scoreboard">
+      <Players />
+      <div className="completed-set-container">{completedSets}</div>
+      <CurrentSet games={score.games}/>
+    </div>
+  )
+}
+
+export default ScoreBoard;

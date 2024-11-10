@@ -1,0 +1,102 @@
+import React from "react";
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import game from './whatsthescorelib/game';
+import ScoreBoard from './scoreboard';
+import Clock from './clock';
+
+function App({matches, stopWatch, dispatch, history}) {
+
+  const score = matches.runningScore;
+  let isMatchDone = '';
+  if (score.sets && score.sets.length > 4) {
+    isMatchDone = ' disabled';
+  }
+
+  function winPoint() {
+    game.winPoint();
+    //todo - move these to actions
+    dispatch({type: 'UPDATE_RUNNING_SCORE', payload: game.getRunningScore()});
+  }
+
+  function losePoint() {
+    game.losePoint();
+    dispatch({type: 'UPDATE_RUNNING_SCORE', payload: game.getRunningScore()});
+  }
+
+  function undoPoint() {
+    game.undo();
+    dispatch({type: 'UPDATE_RUNNING_SCORE', payload: game.getRunningScore()});
+  }
+
+  function reset() {
+    game.endGame();
+    dispatch({type: 'UPDATE_RUNNING_SCORE', payload: game.getRunningScore()});
+    dispatch({type: 'RESET_STOPWATCH'});
+  }
+
+  function endMatch() {
+    dispatch({type: 'ADD_MATCH', payload: game.getRunningScore()});
+    dispatch({type: 'FINISH_MATCH'});
+    dispatch({type: 'RESET_STOPWATCH'});
+    game.endGame();
+    history.push('/matches');
+  }
+
+  function saveTime(time) {
+    dispatch({type: 'UPDATE_STOPWATCH', payload: time});
+  }
+
+  function startMatch() {
+    dispatch({type: 'START_MATCH'});
+  }
+
+  const bigScore = (score.gameWon || score.gameLost) ?
+    <div className="big-score">0 - 0</div> :
+    <div className="big-score">{score.player1} - {score.player2}</div>
+
+  const middleSection = matches.startTime ?
+    <React.Fragment>
+      <button disabled={isMatchDone} className="big-button" onClick={losePoint}>-</button>
+      <button disabled={isMatchDone} className="big-button" onClick={winPoint}>+</button>
+    </React.Fragment> :
+    <button className="big-button big-button__start" onClick={startMatch}>Start</button>
+
+  const hideRhs = matches.startTime ? '' : 'hide';
+
+  return (
+    <React.Fragment>
+      <Clock startTime={stopWatch.stopWatch} saveTime={saveTime} run={matches.startTime}/>
+      {bigScore}
+
+      <div className="controls">
+        <div className="controls__lhs">
+          
+        </div>
+        
+        <div className="controls__middle">
+          {middleSection}
+        </div>
+
+        <div className={`controls__rhs ${hideRhs}`}>
+          <button className="small-button" onClick={undoPoint}>Undo Point</button>
+          <button className="small-button" onClick={reset}>Reset</button>
+          <button className="small-button" onClick={endMatch}>Finish match</button>
+        </div>
+      </div>
+
+      <footer className="footer">
+        <ScoreBoard score={score}/>
+      </footer>
+    </React.Fragment>
+  );
+};
+
+const mapStateToProps = state => ({
+  matches: state.matches,
+  stopWatch: state.stopWatch
+})
+
+export const AppRaw = App;
+export default withRouter(connect(mapStateToProps)(App))
+
