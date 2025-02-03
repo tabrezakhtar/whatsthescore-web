@@ -1,13 +1,9 @@
-import { combineReducers } from 'redux'
+import matchesContext from './matchesContext';
+import stopWatchContext from './stopWatchContext';
+import menuContext from './menuContext';
 
-import matchesReducer from './matchesReducer';
-import stopWatchReducer from './stopWatchReducer';
-import menuReducer from './menuReducer';
-
-const rootReducer = combineReducers({
-  matches: matchesReducer,
-  stopWatch: stopWatchReducer,
-  selected: menuReducer
-})
-
-export default rootReducer
+export default {
+  matchesContext,
+  stopWatchContext,
+  menuContext
+}

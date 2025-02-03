@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
@@ -13,6 +13,10 @@ function Menu({selected}) {
     </ul>
   )
 }
+
+Menu.propTypes = {
+  selected: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => ({
   selected: state.selected

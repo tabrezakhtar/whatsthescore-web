@@ -1,5 +1,3 @@
-import React from 'react'
-
 function About() {
   return (
     <div className="about">
@@ -7,7 +5,7 @@ function About() {
         A simple score keeper app for forgetful tennis players!
       </p>
 
-      <p className="description">Built with React and SASS.</p>
+      <p className="description">Built with React.</p>
 
       <p>Icons made by:</p>
       <p><a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> 

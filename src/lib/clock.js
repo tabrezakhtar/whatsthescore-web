@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
+import PropTypes from 'prop-types';
 
 function Clock({startTime, saveTime, run}) {
   const [time, setTime] = useState(startTime);
@@ -26,5 +27,10 @@ function Clock({startTime, saveTime, run}) {
     <div className="clock">{time.format('HH:mm:ss')}</div>
   )
 }
+Clock.propTypes = {
+  startTime: PropTypes.PropTypes.instanceOf(Date).isRequired,
+  saveTime: PropTypes.PropTypes.instanceOf(Date).isRequired,
+  run: PropTypes.bool.isRequired,
+};
 
 export default Clock;
