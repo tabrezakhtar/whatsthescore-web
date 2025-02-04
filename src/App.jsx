@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withRouter } from 'react-router-dom';
-import game from './whatsthescorelib/game';
+import game from './lib/game';
 import ScoreBoard from './scoreboard';
-import Clock from './clock';
-import { matchesContext, stopWatchContext, menuContext } from "./reducers";
+import Clock from './lib/clock';
+import { MatchesContext, StopWatchContext } from "./reducers";
 
 function App({matches, stopWatch, history}) {
-  const { useMatches } = matchesContext;
+  const { useMatches } = MatchesContext;
   const { startMatch, addMatch, updateRunningScore, finishMatch } = useMatches();
 
-  const { useStopwatch } = stopWatchContext;
-  const { resetStopwatch, updateStopwatch } = useStopwatch();
+  const { useStopWatch } = StopWatchContext;
+  const { resetStopWatch, updateStopWatch } = useStopWatch();
 
   const score = matches.runningScore;
   let isMatchDone = '';
@@ -37,19 +37,19 @@ function App({matches, stopWatch, history}) {
   function reset() {
     game.endGame();
     updateRunningScore(game.getRunningScore());
-    resetStopwatch
+    resetStopWatch
   }
 
   function endMatch() {
     addMatch(game.getRunningScore());
-    finishMatch());
-    resetStopwatch();
+    finishMatch();
+    resetStopWatch();
     game.endGame();
     history.push('/matches');
   }
 
   function saveTime(time) {
-    updateStopwatch(time);
+    updateStopWatch(time);
   }
 
   function start() {

@@ -1,9 +1,9 @@
-import matchesContext from './matchesContext';
-import stopWatchContext from './stopWatchContext';
-import menuContext from './menuContext';
+import { MatchesContext } from './matchesContext';
+import { StopWatchContext } from './stopWatchContext';
+import { MenuContext } from './menuContext';
 
-export default {
-  matchesContext,
-  stopWatchContext,
-  menuContext
+export {
+  MatchesContext,
+  StopWatchContext,
+  MenuContext
 }

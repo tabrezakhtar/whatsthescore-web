@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function Matches({matches}) {
   let message = '';
   if (!matches.completedMatches.length) {
-    message = <h3>There are no completed matches.</h3>
+    message = <h3>There are no completed matches.</h3>;
   }
 
   return (

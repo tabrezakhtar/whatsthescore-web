@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 
-import { menuContext } from "../reducers";
+import { MenuContext } from "../reducers";
 
 function Hamburger({selected}) {
-  const { toggleMenu } = menuContext;
+  const { toggleMenu } = MenuContext;
   const isSelected = selected.selected ? ' is-active' : '';
 
   function burgerClick() {
