@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 function CurrentSet({games}) {
   let p1Score = 0;
@@ -20,5 +20,9 @@ function CurrentSet({games}) {
     </div>
   )
 }
+
+CurrentSet.propTypes = {
+  games: PropTypes.string.isRequired,
+};
 
 export default CurrentSet;

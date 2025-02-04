@@ -1,6 +1,4 @@
-import React from 'react';
-
-function Players(props) {
+function Players() {
   return (
     <div className="players">
       <div>

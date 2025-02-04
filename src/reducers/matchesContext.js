@@ -47,7 +47,7 @@ const MatchesProvider = ({ children }) => {
 
   const value = { matches, startMatch, addMatch, updateRunningScore, finishMatch };
   
-    return <MatchesContext.Provider value={value}>{children}</MatchesContext.Provider>;
+  return <MatchesContext.Provider value={value}>{children}</MatchesContext.Provider>;
 }
 
 MatchesProvider.propTypes = {

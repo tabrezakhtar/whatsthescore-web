@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 function CompletedSet({set}) {
   const isTiebreak = set.split(' ').length > 1;
@@ -30,5 +30,9 @@ function CompletedSet({set}) {
     </div>
   )
 }
+
+CompletedSet.propTypes = {
+  set: PropTypes.string.isRequired,
+};
 
 export default CompletedSet;
