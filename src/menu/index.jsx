@@ -1,11 +1,10 @@
-import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom'
+import { useMenu } from "../reducers/menuContext";
 
-function Menu({selected}) {
+function Menu() {
+  const { menu } = useMenu();
 
-  //grab provider here, use menu.selected
-
-  const showMenu = selected.selected ? ' showMenu' : '';
+  const showMenu = menu.selected ? ' showMenu' : '';
 
   return (
     <ul className={'header__menu' + showMenu}>
@@ -15,9 +14,5 @@ function Menu({selected}) {
     </ul>
   )
 }
-
-Menu.propTypes = {
-  selected: PropTypes.object
-};
 
 export default Menu;

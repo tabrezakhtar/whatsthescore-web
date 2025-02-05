@@ -96,9 +96,9 @@ function App() {
 };
 
 App.propTypes = {
-  matches: PropTypes.array.isRequired,
-  stopWatch: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
+  matches: PropTypes.array,
+  stopWatch: PropTypes.object,
+  history: PropTypes.object,
 };
 
 const AppWithRouter = withRouter(App);

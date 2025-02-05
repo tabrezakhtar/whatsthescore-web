@@ -1,13 +1,11 @@
-import PropTypes from 'prop-types';
+import { useMenu } from "../reducers/menuContext";
 
-import { MenuContext } from "../reducers/menuContext";
-
-function Hamburger({selected}) {
-  const { toggleMenu } = MenuContext;
-  const isSelected = selected.selected ? ' is-active' : '';
+function Hamburger() {
+  const { menu, toggleMenu } = useMenu();
+  const isSelected = menu.selected ? ' is-active' : '';
 
   function burgerClick() {
-    toggleMenu(!selected.selected);
+    toggleMenu(!menu.selected);
   }
 
   return (
@@ -17,12 +15,6 @@ function Hamburger({selected}) {
       </span>
     </button>
   )
-};
-
-Hamburger.propTypes = {
-  selected: PropTypes.shape({
-    selected: PropTypes.bool
-  })
 };
 
 export default Hamburger;
