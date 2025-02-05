@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import { MenuContext } from "../reducers/menuContext";
 
 function Hamburger({selected}) {
-  if (!selected) {
-    return null;
-  }
-  
   const { toggleMenu } = MenuContext;
   const isSelected = selected.selected ? ' is-active' : '';
 

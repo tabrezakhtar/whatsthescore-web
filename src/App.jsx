@@ -7,13 +7,13 @@ import Clock from './lib/clock';
 import { useMatches } from "./reducers/matchesContext";
 import { useStopWatch } from "./reducers/stopWatchContext";
 
-function App({matches, stopWatch, history}) {
-  const { startMatch, addMatch, updateRunningScore, finishMatch } = useMatches();
-  const { resetStopWatch, updateStopWatch } = useStopWatch();
+function App() {
+  const { matches, startMatch, addMatch, updateRunningScore, finishMatch } = useMatches();
+  const { stopWatch, resetStopWatch, updateStopWatch } = useStopWatch();
 
-  const score = matches?.runningScore;
+  const score = matches.runningScore;
   let isMatchDone = '';
-  if (score?.sets && score?.sets.length > 4) {
+  if (score.sets && score.sets.length > 4) {
     isMatchDone = ' disabled';
   }
 
@@ -43,6 +43,8 @@ function App({matches, stopWatch, history}) {
     finishMatch();
     resetStopWatch();
     game.endGame();
+    //todo: add history
+    //todo: update react router
     history.push('/matches');
   }
 
@@ -54,22 +56,22 @@ function App({matches, stopWatch, history}) {
     startMatch()
   }
 
-  const bigScore = (score?.gameWon || score?.gameLost) ?
+  const bigScore = (score.gameWon || score.gameLost) ?
     <div className="big-score">0 - 0</div> :
-    <div className="big-score">{score?.player1} - {score?.player2}</div>
+    <div className="big-score">{score.player1} - {score.player2}</div>
 
-  const middleSection = matches?.startTime ?
+  const middleSection = matches.startTime ?
     <React.Fragment>
       <button disabled={isMatchDone} className="big-button" onClick={losePoint}>-</button>
       <button disabled={isMatchDone} className="big-button" onClick={winPoint}>+</button>
     </React.Fragment> :
     <button className="big-button big-button__start" onClick={start}>Start</button>
 
-  const hideRhs = matches?.startTime ? '' : 'hide';
+  const hideRhs = matches.startTime ? '' : 'hide';
 
   return (
     <>
-      <Clock startTime={stopWatch?.stopWatch} saveTime={saveTime} run={matches?.startTime} />
+      <Clock startTime={stopWatch.stopWatch} saveTime={saveTime} run={matches.startTime} />
       {bigScore}
 
       <div className="controls">

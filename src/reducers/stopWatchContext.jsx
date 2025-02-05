@@ -10,7 +10,7 @@ const StopWatchContext = createContext(null);
 
 const StopWatchProvider = ({ children }) => {
   console.log("StopWatchProvider called");
-  const [stopwatch, setStopWatch] = useState(initialState);
+  const [stopWatch, setStopWatch] = useState(initialState);
 
   const resetStopWatch = () => {
     setStopWatch(initialState);
@@ -20,7 +20,7 @@ const StopWatchProvider = ({ children }) => {
     setStopWatch((stopwatch) => ({ ...stopwatch, stopWatch: newTime }));
   };
 
-  const value = { stopwatch, resetStopWatch, updateStopWatch };
+  const value = { stopWatch, resetStopWatch, updateStopWatch };
 
   return <StopWatchContext.Provider value={value}>{children}</StopWatchContext.Provider>;
 };

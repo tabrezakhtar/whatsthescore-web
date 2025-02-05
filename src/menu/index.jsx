@@ -2,10 +2,9 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom'
 
 function Menu({selected}) {
-  if (!selected) {
-    return null;
-  }
-  
+
+  //grab provider here, use menu.selected
+
   const showMenu = selected.selected ? ' showMenu' : '';
 
   return (

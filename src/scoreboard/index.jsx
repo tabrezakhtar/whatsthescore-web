@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 function ScoreBoard({score}) {
 
-  const completedSets = score?.sets
+  const completedSets = score.sets
     ? score.sets.map((set, index) => (
         <CompletedSet key={index} set={set} />
       ))
