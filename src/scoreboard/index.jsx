@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 function ScoreBoard({score}) {
 
-  const completedSets = score.sets
+  const completedSets = score?.sets
     ? score.sets.map((set, index) => (
         <CompletedSet key={index} set={set} />
       ))
@@ -15,7 +15,7 @@ function ScoreBoard({score}) {
     <div className="scoreboard">
       <Players />
       <div className="completed-set-container">{completedSets}</div>
-      <CurrentSet games={score.games}/>
+      <CurrentSet games={score?.games}/>
     </div>
   )
 }
@@ -23,7 +23,7 @@ ScoreBoard.propTypes = {
   score: PropTypes.shape({
     sets: PropTypes.arrayOf(PropTypes.object),
     games: PropTypes.arrayOf(PropTypes.object)
-  }).isRequired
+  })
 };
 
 export default ScoreBoard;

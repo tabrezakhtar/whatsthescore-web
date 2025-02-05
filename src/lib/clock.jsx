@@ -24,7 +24,7 @@ function Clock({startTime, saveTime, run}) {
   });
 
   return (
-    <div className="clock">{time.format('HH:mm:ss')}</div>
+    <div className="clock">{time?.format('HH:mm:ss')}</div>
   )
 }
 Clock.propTypes = {

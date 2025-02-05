@@ -4,18 +4,16 @@ import { withRouter } from 'react-router-dom';
 import game from './lib/game';
 import ScoreBoard from './scoreboard';
 import Clock from './lib/clock';
-import { MatchesContext, StopWatchContext } from "./reducers";
+import { useMatches } from "./reducers/matchesContext";
+import { useStopWatch } from "./reducers/stopWatchContext";
 
 function App({matches, stopWatch, history}) {
-  const { useMatches } = MatchesContext;
   const { startMatch, addMatch, updateRunningScore, finishMatch } = useMatches();
-
-  const { useStopWatch } = StopWatchContext;
   const { resetStopWatch, updateStopWatch } = useStopWatch();
 
-  const score = matches.runningScore;
+  const score = matches?.runningScore;
   let isMatchDone = '';
-  if (score.sets && score.sets.length > 4) {
+  if (score?.sets && score?.sets.length > 4) {
     isMatchDone = ' disabled';
   }
 
@@ -56,29 +54,27 @@ function App({matches, stopWatch, history}) {
     startMatch()
   }
 
-  const bigScore = (score.gameWon || score.gameLost) ?
+  const bigScore = (score?.gameWon || score?.gameLost) ?
     <div className="big-score">0 - 0</div> :
-    <div className="big-score">{score.player1} - {score.player2}</div>
+    <div className="big-score">{score?.player1} - {score?.player2}</div>
 
-  const middleSection = matches.startTime ?
+  const middleSection = matches?.startTime ?
     <React.Fragment>
       <button disabled={isMatchDone} className="big-button" onClick={losePoint}>-</button>
       <button disabled={isMatchDone} className="big-button" onClick={winPoint}>+</button>
     </React.Fragment> :
     <button className="big-button big-button__start" onClick={start}>Start</button>
 
-  const hideRhs = matches.startTime ? '' : 'hide';
+  const hideRhs = matches?.startTime ? '' : 'hide';
 
   return (
-    <React.Fragment>
-      <Clock startTime={stopWatch.stopWatch} saveTime={saveTime} run={matches.startTime}/>
+    <>
+      <Clock startTime={stopWatch?.stopWatch} saveTime={saveTime} run={matches?.startTime} />
       {bigScore}
 
       <div className="controls">
-        <div className="controls__lhs">
-          
-        </div>
-        
+        <div className="controls__lhs"></div>
+
         <div className="controls__middle">
           {middleSection}
         </div>
@@ -91,9 +87,9 @@ function App({matches, stopWatch, history}) {
       </div>
 
       <footer className="footer">
-        <ScoreBoard score={score}/>
+        <ScoreBoard score={score} />
       </footer>
-    </React.Fragment>
+    </>
   );
 };
 

@@ -5,8 +5,8 @@ function CurrentSet({games}) {
   let p2Score = 0;
 
   if (games) {
-    p1Score = games.split('-')[0];
-    p2Score = games.split('-')[1];
+    p1Score = games?.split('-')[0];
+    p2Score = games?.split('-')[1];
   }
 
   return (
@@ -22,7 +22,7 @@ function CurrentSet({games}) {
 }
 
 CurrentSet.propTypes = {
-  games: PropTypes.string.isRequired,
+  games: PropTypes.string,
 };
 
 export default CurrentSet;

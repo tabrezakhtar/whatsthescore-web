@@ -2,6 +2,10 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom'
 
 function Menu({selected}) {
+  if (!selected) {
+    return null;
+  }
+  
   const showMenu = selected.selected ? ' showMenu' : '';
 
   return (
@@ -14,7 +18,7 @@ function Menu({selected}) {
 }
 
 Menu.propTypes = {
-  selected: PropTypes.object.isRequired
+  selected: PropTypes.object
 };
 
 export default Menu;
