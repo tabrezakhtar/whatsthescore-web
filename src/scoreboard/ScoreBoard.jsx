@@ -1,7 +1,7 @@
-import Players from './players';
-import CurrentSet from './current-set';
-import CompletedSet from './completed-set';
-import PropTypes from 'prop-types';
+import Players from "./Players";
+import CurrentSet from "./CurrentSet";
+import CompletedSet from "./CompletedSet";
+import PropTypes from "prop-types";
 
 function ScoreBoard({score}) {
 

@@ -1,20 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withRouter } from 'react-router-dom';
-import game from './lib/game';
-import ScoreBoard from './scoreboard';
-import Clock from './lib/clock';
-import { useMatches } from "./reducers/matchesContext";
-import { useStopWatch } from "./reducers/stopWatchContext";
+import { withRouter } from "react-router-dom";
+import game from "./matches/lib/Game";
+import ScoreBoard from "./scoreboard/ScoreBoard";
+import Clock from "./matches/lib/Clock";
+import { useMatches } from "./context/matchesContext";
+import { useStopWatch } from "./context/stopWatchContext";
 
 function App() {
   const { matches, startMatch, addMatch, updateRunningScore, finishMatch } = useMatches();
   const { stopWatch, resetStopWatch, updateStopWatch } = useStopWatch();
 
   const score = matches.runningScore;
-  let isMatchDone = '';
+  let isMatchDone = "";
   if (score.sets && score.sets.length > 4) {
-    isMatchDone = ' disabled';
+    isMatchDone = " disabled";
   }
 
   function winPoint() {
@@ -45,7 +45,7 @@ function App() {
     game.endGame();
     //todo: add history
     //todo: update react router
-    history.push('/matches');
+    history.push("/matches");
   }
 
   function saveTime(time) {
@@ -67,7 +67,7 @@ function App() {
     </React.Fragment> :
     <button className="big-button big-button__start" onClick={start}>Start</button>
 
-  const hideRhs = matches.startTime ? '' : 'hide';
+  const hideRhs = matches.startTime ? "" : "hide";
 
   return (
     <>
@@ -103,4 +103,3 @@ App.propTypes = {
 
 const AppWithRouter = withRouter(App);
 export default AppWithRouter;
-

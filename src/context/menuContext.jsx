@@ -25,11 +25,11 @@ MenuProvider.propTypes = {
 };
 
 const useMenu = () => {
-  console.log('useStopwatch called');
+  console.log("useStopwatch called");
   const value = useContext(MenuContext);
 
   if (!value) {
-    throw new Error('🗣️ useMenu hook used without MenuContext');
+    throw new Error("🗣️ useMenu hook used without MenuContext");
   }
 
   return value;

@@ -1,8 +1,8 @@
-import ScoreBoard from '../scoreboard';
+import ScoreBoard from "../scoreboard/ScoreBoard";
 import PropTypes from "prop-types";
 
 function Matches({matches}) {
-  let message = '';
+  let message = "";
   if (!matches.completedMatches.length) {
     message = <h3>There are no completed matches.</h3>;
   }

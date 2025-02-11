@@ -55,11 +55,11 @@ MatchesProvider.propTypes = {
 };
 
 const useMatches = () => {
-  console.log('useMatches called');
+  console.log("useMatches called");
   const value = useContext(MatchesContext);
 
   if (!value) {
-    throw new Error('🗣️ useMatches hook used without MatchesContext');
+    throw new Error("🗣️ useMatches hook used without MatchesContext");
   }
 
   return value;

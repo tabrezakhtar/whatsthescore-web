@@ -1,5 +1,5 @@
-import {useEffect, useState} from "react";
-import PropTypes from 'prop-types';
+import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 function Clock({startTime, saveTime, run}) {
   const [time, setTime] = useState(startTime);
@@ -10,7 +10,7 @@ function Clock({startTime, saveTime, run}) {
     if (run) {
       timerId = setInterval(
         () => {
-          const updatedTime = time.clone().add(1, 'second');
+          const updatedTime = time.clone().add(1, "second");
           setTime(updatedTime);
           saveTime(updatedTime);
         },
@@ -24,7 +24,7 @@ function Clock({startTime, saveTime, run}) {
   });
 
   return (
-    <div className="clock">{time?.format('HH:mm:ss')}</div>
+    <div className="clock">{time?.format("HH:mm:ss")}</div>
   )
 }
 Clock.propTypes = {

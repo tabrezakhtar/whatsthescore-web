@@ -1,12 +1,12 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 function CurrentSet({games}) {
   let p1Score = 0;
   let p2Score = 0;
 
   if (games) {
-    p1Score = games.split('-')[0];
-    p2Score = games.split('-')[1];
+    p1Score = games.split("-")[0];
+    p2Score = games.split("-")[1];
   }
 
   return (

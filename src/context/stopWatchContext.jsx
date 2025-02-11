@@ -30,11 +30,11 @@ StopWatchProvider.propTypes = {
 };
 
 const useStopWatch = () => {
-  console.log('useStopWatch called');
+  console.log("useStopWatch called");
   const value = useContext(StopWatchContext);
 
   if (!value) {
-    throw new Error('🗣️ useStopWatch hook used without StopWatchContext');
+    throw new Error("🗣️ useStopWatch hook used without StopWatchContext");
   }
 
   return value;
@@ -42,3 +42,4 @@ const useStopWatch = () => {
 
 
 export { StopWatchProvider, StopWatchContext, useStopWatch };
+

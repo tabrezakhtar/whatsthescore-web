@@ -1,10 +1,10 @@
 class ScoreHelper {
   winPoints(game, times) {
-    [...Array(times)].forEach((e) => game.winPoint());
+    [...Array(times)].forEach(() => game.winPoint());
   }
 
   losePoints(game, times) {
-    [...Array(times)].forEach((e) => game.losePoint());
+    [...Array(times)].forEach(() => game.losePoint());
   }
 }
 
