@@ -10,7 +10,7 @@ import { MatchesProvider } from "./context/matchesContext";
 import { StopWatchProvider } from "./context/stopWatchContext";
 import { MenuProvider } from "./context/menuContext";
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <MatchesProvider>
