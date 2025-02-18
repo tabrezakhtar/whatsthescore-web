@@ -10,31 +10,45 @@ import { MatchesProvider } from "./context/matchesContext";
 import { StopWatchProvider } from "./context/stopWatchContext";
 import { MenuProvider } from "./context/menuContext";
 
+const ball = {
+  width: "1.2rem",
+  margin: "0.5rem",
+};
+
+const navItemStyle = {
+  display: "flex",
+  alignItems: "center"
+};
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <MatchesProvider>
         <StopWatchProvider>
           <MenuProvider>
-            <header className="header">
-              <div className="header__logo-box">
-                <NavLink to="/">
-                  <img src="/ball.png" alt="Logo" className="header__logo" />
-                  <span>whatsthescore</span>
-                </NavLink>
-              </div>
-
-              <Hamburger />
-              <Menu />
+            <header className="container-fluid">
+              <nav>
+                <ul>
+                  <li>
+                    <strong>
+                      <NavLink to="/" style={navItemStyle}>
+                        <img src="/ball.png" alt="Logo" style={ball} />
+                        <span>whatsthescore</span>  
+                      </NavLink>
+                    </strong>
+                  </li>
+                </ul>
+                  <Menu />
+              </nav>
             </header>
 
-            <div className="main">
+            <main className="container-fluid">
               <Switch>
                 <Route exact path="/" component={App} />
                 <Route exact path="/matches" component={Matches} />
                 <Route exact path="/about" component={About} />
               </Switch>
-            </div>
+            </main>
           </MenuProvider>
         </StopWatchProvider>
       </MatchesProvider>
