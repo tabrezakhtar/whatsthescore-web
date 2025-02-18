@@ -72,9 +72,9 @@ function App() {
   return (
     <>
       <Clock startTime={stopWatch.stopWatch} saveTime={saveTime} run={matches.startTime} />
-      {bigScore}
+      <article className="controls">
+        {bigScore}
 
-      <div className="controls">
         <div className="controls__lhs"></div>
 
         <div className="controls__middle">
@@ -86,9 +86,9 @@ function App() {
           <button className="small-button" onClick={reset}>Reset</button>
           <button className="small-button" onClick={endMatch}>Finish match</button>
         </div>
-      </div>
+      </article>
 
-      <footer className="footer">
+      <footer className="footer" style={{ position: "fixed", bottom: "0" }}>
         <ScoreBoard score={score} />
       </footer>
     </>

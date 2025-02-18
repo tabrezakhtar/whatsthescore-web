@@ -4,6 +4,10 @@ import PropTypes from "prop-types";
 function Clock({startTime, saveTime, run}) {
   const [time, setTime] = useState(startTime);
 
+  const center = {
+    textAlign: "center",
+  };
+
   useEffect(() => {
     let timerId = 0;
 
@@ -24,7 +28,7 @@ function Clock({startTime, saveTime, run}) {
   });
 
   return (
-    <div className="clock">{time?.format("HH:mm:ss")}</div>
+    <article style={center} className="pico-background-slate-650">{time?.format("HH:mm:ss")}</article>
   )
 }
 Clock.propTypes = {
