@@ -57,25 +57,26 @@ function App() {
   }
 
   const bigScore = (score.gameWon || score.gameLost) ?
-    <div className="big-score">0 - 0</div> :
-    <div className="big-score">{score.player1} - {score.player2}</div>
+    <h1 className="large" style={{fontSize: "18rem"}}>0 - 0</h1> :
+    <h1 className="large" style={{fontSize: "18rem"}}>{score.player1} - {score.player2}</h1>
 
   const middleSection = matches.startTime ?
     <React.Fragment>
       <button disabled={isMatchDone} className="big-button" onClick={losePoint}>-</button>
       <button disabled={isMatchDone} className="big-button" onClick={winPoint}>+</button>
     </React.Fragment> :
-    <button className="big-button big-button__start" onClick={start}>Start</button>
+    <button className="center-align" onClick={start}>Start</button>
 
-  const hideRhs = matches.startTime ? "" : "hide";
+  const showRhs = !!matches.startTime;
 
   return (
     <>
       <Clock startTime={stopWatch.stopWatch} saveTime={saveTime} run={matches.startTime} />
-      <article className="controls">
-        <article>
+
+      <div className="padding secondary-container">
+        <summary className="center-align">
           {bigScore}
-        </article>
+        </summary>
 
         <div className="controls__lhs"></div>
 
@@ -83,12 +84,14 @@ function App() {
           {middleSection}
         </div>
 
-        <div className={`controls__rhs ${hideRhs}`}>
-          <button className="small-button" onClick={undoPoint}>Undo Point</button>
-          <button className="small-button" onClick={reset}>Reset</button>
-          <button className="small-button" onClick={endMatch}>Finish match</button>
-        </div>
-      </article>
+        {showRhs &&
+          <div>
+            <button className="small-button" onClick={undoPoint}>Undo Point</button>
+            <button className="small-button" onClick={reset}>Reset</button>
+            <button className="small-button" onClick={endMatch}>Finish match</button>
+          </div>
+        }
+      </div>
 
       <footer className="footer" style={{ position: "fixed", bottom: "0" }}>
         <ScoreBoard score={score} />
