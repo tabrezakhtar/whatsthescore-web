@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import moment from "moment";
 
 function Clock({startTime, saveTime, run}) {
   const [time, setTime] = useState(startTime);
@@ -32,9 +33,9 @@ function Clock({startTime, saveTime, run}) {
   )
 }
 Clock.propTypes = {
-  startTime: PropTypes.PropTypes.instanceOf(Date).isRequired,
-  saveTime: PropTypes.PropTypes.instanceOf(Date).isRequired,
-  run: PropTypes.bool.isRequired,
+  startTime: PropTypes.instanceOf(moment).isRequired,
+  saveTime: PropTypes.func.isRequired,
+  run: PropTypes.func,
 };
 
 export default Clock;

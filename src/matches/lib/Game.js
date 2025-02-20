@@ -49,7 +49,7 @@ class Game {
   }
 
   undo() {
-    if (this.runningscore.length === 1) {
+    if (this.runningScore.length === 1) {
       this.pointsIndex = 0;
       this.player1 = 0;
       this.player2 = 0;
@@ -60,10 +60,10 @@ class Game {
     }
 
     this.pointsIndex--;
-    this.runningscore.pop();
+    this.runningScore.pop();
 
-    this.player1 = this.runningScore[this.runningscore.length - 1].player1;
-    this.player1 = this.runningScore[this.runningscore.length - 1].player2;
+    this.player1 = this.runningScore[this.runningScore.length - 1].player1;
+    this.player1 = this.runningScore[this.runningScore.length - 1].player2;
   }
 
   winPoint() {
@@ -109,7 +109,7 @@ class Game {
       this.reset();
     }
 
-    this.runningscore.push(scores);
+    this.runningScore.push(scores);
   }
 
   updateScore(win) {
@@ -193,7 +193,7 @@ class Game {
       this.player2 = 3;
     }
 
-    this.runningscore.push(scores)
+    this.runningScore.push(scores)
 
     if (this.winningGames.includes(this.getGamesForCurrentSet())) {
       scores["setWon"]= true;
@@ -210,22 +210,22 @@ class Game {
 
   getGamesForCurrentSet() {
     //if not set won/lost
-    if (this.runningscore.filter(score => score.setWon).length === 0 && this.runningscore.filter(score => score.setLost).length === 0) {
-      const gamesWon = this.runningscore.filter(score => score.gameWon).length;
-      const gamesLost = this.runningscore.filter(score => score.gameLost).length;
+    if (this.runningScore.filter(score => score.setWon).length === 0 && this.runningScore.filter(score => score.setLost).length === 0) {
+      const gamesWon = this.runningScore.filter(score => score.gameWon).length;
+      const gamesLost = this.runningScore.filter(score => score.gameLost).length;
       return `${gamesWon}-${gamesLost}`;
     }
 
     //get last set won index
     let lastIndex = 0;
-    this.runningscore.forEach( (rs, index) => { 
+    this.runningScore.forEach( (rs, index) => { 
       if (rs.setWon || rs.setLost) {
         lastIndex = index;
       }
     });
 
     //slice array by last set index to get current set being played
-    const currentSet = this.runningscore.slice(lastIndex + 1, this.runningscore.length);
+    const currentSet = this.runningScore.slice(lastIndex + 1, this.runningScore.length);
     const gamesWon = currentSet.filter(score => score.gameWon).length;
     const gamesLost = currentSet.filter(score => score.gameLost).length;
     return `${gamesWon}-${gamesLost}`;
@@ -236,9 +236,9 @@ class Game {
     const completedSets = [];
     let currentIndex = 0;
     //split the running score into sets - look for sets won/lost
-    this.runningscore.forEach( (score, index) => {
+    this.runningScore.forEach( (score, index) => {
       if (score.setWon || score.setLost) {
-        completedSets.push(this.runningscore.slice(currentIndex, index + 1));
+        completedSets.push(this.runningScore.slice(currentIndex, index + 1));
         currentIndex = index + 1;
       }
     });
