@@ -73,7 +73,9 @@ function App() {
     <>
       <Clock startTime={stopWatch.stopWatch} saveTime={saveTime} run={matches.startTime} />
       <article className="controls">
-        {bigScore}
+        <article>
+          {bigScore}
+        </article>
 
         <div className="controls__lhs"></div>
 

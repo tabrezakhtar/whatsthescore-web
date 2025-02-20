@@ -26,29 +26,41 @@ createRoot(document.getElementById("root")).render(
       <MatchesProvider>
         <StopWatchProvider>
           <MenuProvider>
-            <header className="container-fluid">
-              <nav>
-                <ul>
-                  <li>
-                    <strong>
-                      <NavLink to="/" style={navItemStyle}>
-                        <img src="/ball.png" alt="Logo" style={ball} />
-                        <span>whatsthescore</span>  
-                      </NavLink>
-                    </strong>
-                  </li>
-                </ul>
-                  <Menu />
-              </nav>
-            </header>
+            <div className="container">
+              <header class="fixed">
+                <nav>
+                  <NavLink to="/"><img class="circle" src="/ball.png"/></NavLink>
+                  <h5 className="page right active no-margin l">whatsthescore</h5>
+                  <div class="max"></div>
+                  <NavLink exact to="/">
+                    <button class="large">
+                      <img class="responsive" src="https://www.beercss.com/favicon.png" />
+                      <span>Home</span>
+                    </button>
+                  </NavLink>
+                  <NavLink exact to="/matches">
+                    <button class="large">
+                      <img class="responsive" src="https://www.beercss.com/favicon.png" />
+                      <span>Matches</span>
+                    </button>
+                  </NavLink>
+                  <NavLink exact to="/About">
+                    <button class="large">
+                      <img class="responsive" src="https://www.beercss.com/favicon.png" />
+                      <span>About</span>
+                    </button>
+                  </NavLink>                  
+                </nav>
+              </header>
 
-            <main className="container-fluid">
-              <Switch>
-                <Route exact path="/" component={App} />
-                <Route exact path="/matches" component={Matches} />
-                <Route exact path="/about" component={About} />
-              </Switch>
-            </main>
+              <main>
+                <Switch>
+                  <Route exact path="/" component={App} />
+                  <Route exact path="/matches" component={Matches} />
+                  <Route exact path="/about" component={About} />
+                </Switch>
+              </main>
+            </div>
           </MenuProvider>
         </StopWatchProvider>
       </MatchesProvider>
