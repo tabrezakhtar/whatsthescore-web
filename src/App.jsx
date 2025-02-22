@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 import game from "./matches/lib/Game";
 import ScoreBoard from "./scoreboard/ScoreBoard";
 import Clock from "./matches/lib/Clock";
 import { useMatches } from "./context/matchesContext";
 import { useStopWatch } from "./context/stopWatchContext";
 
-function App() {
+function App(props) {
+  const history = useHistory();
   const { matches, startMatch, addMatch, updateRunningScore, finishMatch } = useMatches();
   const { stopWatch, resetStopWatch, updateStopWatch } = useStopWatch();
 
@@ -93,7 +94,7 @@ function App() {
         }
       </div>
 
-      <footer className="footer" style={{ position: "fixed", bottom: "0" }}>
+      <footer className="footer inverse-primary">
         <ScoreBoard score={score} />
       </footer>
     </>

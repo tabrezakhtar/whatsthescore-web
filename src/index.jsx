@@ -27,26 +27,26 @@ createRoot(document.getElementById("root")).render(
         <StopWatchProvider>
           <MenuProvider>
             <main className="responsive">
-              <header class="fixed">
+              <header className="fixed">
                 <nav>
-                  <NavLink to="/"><img class="circle" src="/ball.png"/></NavLink>
+                  <NavLink to="/"><img className="circle" src="/ball.png"/></NavLink>
                   <h5 className="page right active no-margin l">whatsthescore</h5>
-                  <div class="max"></div>
+                  <div className="max"></div>
                   <NavLink exact to="/">
-                    <button class="small-round large transparent no-margin l">
+                    <button className="small-round large transparent no-margin l">
                     <i className="fa-solid fa-house"></i>
                       <span>Home</span>
                     </button>
                   </NavLink>
                   <NavLink exact to="/matches">
-                    <button class="small-round large transparent no-margin l">
-                    <i class="fas fa-camera"></i>
+                    <button className="small-round large transparent no-margin l">
+                    <i className="fas fa-camera"></i>
                       <span>Matches</span>
                     </button>
                   </NavLink>
                   <NavLink exact to="/About">
-                    <button class="small-round large transparent no-margin l">
-                      <i class="fas fa-camera"></i>
+                    <button className="small-round large transparent no-margin l">
+                      <i className="fas fa-camera"></i>
                       <span>About</span>
                     </button>
                   </NavLink>                  

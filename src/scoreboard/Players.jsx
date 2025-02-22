@@ -1,6 +1,8 @@
+import React from "react";
+
 function Players() {
   return (
-    <div className="players">
+    <div className="vertical blue4 medium-padding players">
       <div>
         Player1
       </div>

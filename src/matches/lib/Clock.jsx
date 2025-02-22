@@ -25,7 +25,7 @@ function Clock({startTime, saveTime, run}) {
   });
 
   return (
-    <div class="padding secondary center-align">
+    <div className="padding secondary center-align">
       {time?.format("HH:mm:ss")}
     </div>
   )

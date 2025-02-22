@@ -17,7 +17,7 @@ const MatchesProvider = ({ children }) => {
   const [matches, setMatches] = useState(initialState);
 
   const startMatch = () => {
-    setMatches((matches) => ({ ...matches, startTime: Date.now }));
+    setMatches((matches) => ({ ...matches, startTime: Date.now() }));
   };
 
   const addMatch = (runningScore) => {

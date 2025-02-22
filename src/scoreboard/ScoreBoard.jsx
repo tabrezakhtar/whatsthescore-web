@@ -2,6 +2,7 @@ import Players from "./Players";
 import CurrentSet from "./CurrentSet";
 import CompletedSet from "./CompletedSet";
 import PropTypes from "prop-types";
+import "./scoreboard.css";
 
 function ScoreBoard({score}) {
 
@@ -12,11 +13,11 @@ function ScoreBoard({score}) {
     : null;
 
   return (
-    <div className="scoreboard">
+    <footer className="horizontal secondary margin middle-align">
       <Players />
       <div className="completed-set-container">{completedSets}</div>
       <CurrentSet games={score?.games}/>
-    </div>
+    </footer>
   )
 }
 ScoreBoard.propTypes = {

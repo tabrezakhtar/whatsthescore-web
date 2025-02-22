@@ -1,7 +1,9 @@
 import ScoreBoard from "../scoreboard/ScoreBoard";
 import PropTypes from "prop-types";
+import { useMatches } from "../context/matchesContext";
 
-function Matches({matches}) {
+function Matches() {
+  const { matches } = useMatches();
   let message = "";
   if (!matches.completedMatches.length) {
     message = <h3>There are no completed matches.</h3>;
