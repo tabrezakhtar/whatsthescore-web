@@ -44,8 +44,6 @@ function App(props) {
     finishMatch();
     resetStopWatch();
     game.endGame();
-    //todo: add history
-    //todo: update react router
     history.push("/matches");
   }
 
@@ -58,15 +56,15 @@ function App(props) {
   }
 
   const bigScore = (score.gameWon || score.gameLost) ?
-    <h1 className="large" style={{fontSize: "18rem"}}>0 - 0</h1> :
-    <h1 className="large" style={{fontSize: "18rem"}}>{score.player1} - {score.player2}</h1>
+    <h1 className="large" style={{fontSize: "17rem"}}>0 - 0</h1> :
+    <h1 className="large" style={{fontSize: "17rem"}}>{score.player1} - {score.player2}</h1>
 
   const middleSection = matches.startTime ?
     <React.Fragment>
-      <button disabled={isMatchDone} className="big-button" onClick={losePoint}>-</button>
-      <button disabled={isMatchDone} className="big-button" onClick={winPoint}>+</button>
+      <button type="button" disabled={isMatchDone} className="big-button" onClick={losePoint}>-</button>
+      <button type="button" disabled={isMatchDone} className="big-button" onClick={winPoint}>+</button>
     </React.Fragment> :
-    <button className="center-align" onClick={start}>Start</button>
+    <button type="button" onClick={start}>Start</button>
 
   const showRhs = !!matches.startTime;
 
@@ -79,19 +77,21 @@ function App(props) {
           {bigScore}
         </summary>
 
-        <div className="controls__lhs"></div>
-
-        <div className="controls__middle">
-          {middleSection}
-        </div>
-
-        {showRhs &&
-          <div>
-            <button className="small-button" onClick={undoPoint}>Undo Point</button>
-            <button className="small-button" onClick={reset}>Reset</button>
-            <button className="small-button" onClick={endMatch}>Finish match</button>
+        <div className="grid">
+          <div className="s4" />
+          <div className="s4 controls__middle center-align middle-align">
+            {middleSection}
           </div>
-        }
+          <div class="s4">
+            {showRhs &&
+              <div className="vertical middle-align">
+                <button className="small-margin" onClick={undoPoint}>Undo Point</button>
+                <button className="small-margin" onClick={reset}>Reset</button>
+                <button className="small-margin" onClick={endMatch}>Finish match</button>
+              </div>
+            }
+          </div>
+        </div>
       </div>
 
       <footer className="footer inverse-primary">
