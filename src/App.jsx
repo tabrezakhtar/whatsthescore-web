@@ -7,10 +7,10 @@ import Clock from "./matches/lib/Clock";
 import { useMatches } from "./context/matchesContext";
 import { useStopWatch } from "./context/stopWatchContext";
 
-function App(props) {
+function App() {
   const history = useHistory();
   const { matches, startMatch, addMatch, updateRunningScore, finishMatch } = useMatches();
-  const { stopWatch, resetStopWatch, updateStopWatch } = useStopWatch();
+  const { resetStopWatch } = useStopWatch();
 
   const score = matches.runningScore;
   let isMatchDone = "";
@@ -47,10 +47,6 @@ function App(props) {
     history.push("/matches");
   }
 
-  function saveTime(time) {
-    updateStopWatch(time);
-  }
-
   function start() {
     startMatch()
   }
@@ -70,8 +66,7 @@ function App(props) {
 
   return (
     <>
-      <Clock startTime={stopWatch.stopWatch} saveTime={saveTime} run={matches.startTime} />
-
+      <Clock />
       <div className="padding secondary-container">
         <summary className="center-align">
           {bigScore}

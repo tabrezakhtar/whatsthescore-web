@@ -1,19 +1,25 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
+import { useMatches } from "../../context/matchesContext";
+import { useStopWatch } from "../../context/stopWatchContext";
 
-function Clock({startTime, saveTime, run}) {
+function Clock() {
+  const { matches } = useMatches();
+  const { stopWatch } = useStopWatch();
+
+  const startTime = stopWatch.stopWatch;
   const [time, setTime] = useState(startTime);
 
   useEffect(() => {
     let timerId = 0;
 
-    if (run) {
+    if (matches.startTime) {
       timerId = setInterval(
         () => {
           const updatedTime = time.clone().add(1, "second");
           setTime(updatedTime);
-          saveTime(updatedTime);
+          updateStopWatch(updatedTime);
         },
         1000
       );
@@ -30,10 +36,5 @@ function Clock({startTime, saveTime, run}) {
     </div>
   )
 }
-Clock.propTypes = {
-  startTime: PropTypes.instanceOf(moment).isRequired,
-  saveTime: PropTypes.func.isRequired,
-  run: PropTypes.func,
-};
 
 export default Clock;
