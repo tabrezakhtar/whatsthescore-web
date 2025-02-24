@@ -13,11 +13,11 @@ function ScoreBoard({score}) {
     : null;
 
   return (
-    <footer className="horizontal secondary margin middle-align">
+    <div className="row no-space secondary margin middle-align">
       <Players />
-      <div className="completed-set-container">{completedSets}</div>
+      <div className="completed-set-container padding">{completedSets}</div>
       <CurrentSet games={score?.games}/>
-    </footer>
+    </div>
   )
 }
 ScoreBoard.propTypes = {

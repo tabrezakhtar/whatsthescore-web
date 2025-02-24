@@ -10,7 +10,7 @@ function CurrentSet({games}) {
   }
 
   return (
-    <div>
+    <div className="padding">
       <div>
         {p1Score}
       </div>
