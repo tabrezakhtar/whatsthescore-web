@@ -72,22 +72,17 @@ function App() {
           {bigScore}
         </summary>
 
-        <div className="grid">
-          <div className="s4" />
-          <div className="s4 controls__middle center-align middle-align">
-            {middleSection}
-          </div>
-          <div class="s4">
-            {showRhs &&
-              <div className="vertical middle-align">
-                <button className="small-margin" onClick={undoPoint}>Undo Point</button>
-                <button className="small-margin" onClick={reset}>Reset</button>
-                <button className="small-margin" onClick={endMatch}>Finish match</button>
-              </div>
-            }
-          </div>
+        <div className="row middle-align">
+          {middleSection}
         </div>
-      </div>
+        {showRhs &&
+          <div className="row middle-align wrap">
+            <button className="small-margin" onClick={undoPoint}>Undo Point</button>
+            <button className="small-margin" onClick={reset}>Reset</button>
+            <button className="small-margin" onClick={endMatch}>Finish match</button>
+          </div>
+        }
+        </div>
 
       <footer className="footer inverse-primary">
         <ScoreBoard score={score} />

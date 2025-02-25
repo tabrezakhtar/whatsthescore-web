@@ -8,16 +8,6 @@ import { MatchesProvider } from "./context/matchesContext";
 import { StopWatchProvider } from "./context/stopWatchContext";
 import { MenuProvider } from "./context/menuContext";
 
-const ball = {
-  width: "1.2rem",
-  margin: "0.5rem",
-};
-
-const navItemStyle = {
-  display: "flex",
-  alignItems: "center"
-};
-
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>

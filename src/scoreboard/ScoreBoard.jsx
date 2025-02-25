@@ -15,7 +15,7 @@ function ScoreBoard({score}) {
   return (
     <div className="row no-space secondary margin middle-align">
       <Players />
-      <div className="completed-set-container padding">{completedSets}</div>
+      <div className="completed-set-container">{completedSets}</div>
       <CurrentSet games={score?.games}/>
     </div>
   )
