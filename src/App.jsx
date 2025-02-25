@@ -52,8 +52,8 @@ function App() {
   }
 
   const bigScore = (score.gameWon || score.gameLost) ?
-    <h1 className="large" style={{fontSize: "17rem"}}>0 - 0</h1> :
-    <h1 className="large" style={{fontSize: "17rem"}}>{score.player1} - {score.player2}</h1>
+    <h1 className="large" style={{fontSize: "12vw"}}>0 - 0</h1> :
+    <h1 className="large" style={{fontSize: "12vw"}}>{score.player1} - {score.player2}</h1>
 
   const middleSection = matches.startTime ?
     <React.Fragment>
