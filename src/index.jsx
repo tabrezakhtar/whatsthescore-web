@@ -77,7 +77,7 @@ createRoot(document.getElementById("root")).render(
                     </menu>
                   </button>
                   <NavLink to="/"><img className="circle" src="/ball.png"/></NavLink>
-                  <h5 className="page right active no-margin l">whatsthescore</h5>
+                  <h6 className="page right active no-margin l">whatsthescore</h6>
                 </nav>
               </header>
 
