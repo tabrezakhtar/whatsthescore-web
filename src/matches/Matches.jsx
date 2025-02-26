@@ -12,7 +12,7 @@ function Matches() {
   return (
     <div className="matches padding">
       {message}
-      <div className="scoreContainer row">
+      <div className="scoreContainer row wrap">
         {
           matches.completedMatches.map(score => {
             return <article key={score.id} className="scoreboard-border tertiary-container">

@@ -12,7 +12,7 @@ function ScoreBoard({score}) {
     : null;
 
   return (
-    <div className="row no-space secondary margin">
+    <div className="row no-space secondary margin" style={{alignSelf: "center"}}>
       <Players />
       <div className="completed-set-container" style={{display: "flex"}}>{completedSets}</div>
       <CurrentSet games={score?.games}/>
