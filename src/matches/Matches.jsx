@@ -10,16 +10,16 @@ function Matches() {
   }
 
   return (
-    <div className="matches">
+    <div className="matches padding">
       {message}
-      <div className="scoreContainer">
+      <div className="scoreContainer row">
         {
           matches.completedMatches.map(score => {
-            return <div key={score.id} className="scoreboard-border">
+            return <article key={score.id} className="scoreboard-border tertiary-container">
               <div>{new Date(score.startTime).toDateString()}</div>
               <div>{new Date(score.startTime).toLocaleTimeString()} to {new Date(score.endTime).toLocaleTimeString()}</div>
               <ScoreBoard score={score} />
-            </div>
+            </article>
           })
         }
       </div>

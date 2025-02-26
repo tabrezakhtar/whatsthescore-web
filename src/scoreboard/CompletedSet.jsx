@@ -1,6 +1,15 @@
 import PropTypes from "prop-types";
 
 function CompletedSet({set}) {
+  const scoreLeftBorder = {
+    borderLeft: "2px solid white",
+  }
+
+  const tiebreak = {
+    fontSize: "0.6rem",
+    marginTop: "-5px",
+  }
+
   const isTiebreak = set.split(" ").length > 1;
   let p1Score = 0;
   let p2Score = 0;
@@ -20,12 +29,12 @@ function CompletedSet({set}) {
   }
 
   return (
-    <div className="set set-completed">
-      <div>
-        {p1Score} <span>{p1TbScore}</span>
+    <div className="set set-completed padding" style={scoreLeftBorder}>
+      <div style={{display: "flex"}}>
+        {p1Score} <span style={tiebreak}>{p1TbScore}</span>
       </div>
-      <div>
-        {p2Score} <span>{p2TbScore}</span>
+      <div style={{display: "flex"}}>
+        {p2Score} <span style={tiebreak}>{p2TbScore}</span>
       </div>
     </div>
   )

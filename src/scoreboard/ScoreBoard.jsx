@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import "./scoreboard.css";
 
 function ScoreBoard({score}) {
-
   const completedSets = score.sets
     ? score.sets.map((set, index) => (
         <CompletedSet key={index} set={set} />
@@ -13,9 +12,9 @@ function ScoreBoard({score}) {
     : null;
 
   return (
-    <div className="row no-space secondary margin middle-align">
+    <div className="row no-space secondary margin">
       <Players />
-      <div className="completed-set-container">{completedSets}</div>
+      <div className="completed-set-container" style={{display: "flex"}}>{completedSets}</div>
       <CurrentSet games={score?.games}/>
     </div>
   )
