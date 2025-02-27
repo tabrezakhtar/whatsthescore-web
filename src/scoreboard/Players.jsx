@@ -2,7 +2,7 @@ import React from "react";
 
 function Players() {
   return (
-    <div className="vertical blue4 padding players">
+    <div className="vertical surface-container padding players">
       <div>
         Player1
       </div>

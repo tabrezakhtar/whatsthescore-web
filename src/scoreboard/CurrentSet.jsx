@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 
 function CurrentSet({games}) {
-  const scoreLeftBorder = {
+  const scoreStyle = {
     borderLeft: "2px solid white",
+    fontWeight: "bold",
   }
 
   let p1Score = 0;
@@ -14,7 +15,7 @@ function CurrentSet({games}) {
   }
 
   return (
-    <div className="padding" style={scoreLeftBorder}>
+    <div className="padding" style={scoreStyle}>
       <div>
         {p1Score}
       </div>

@@ -67,7 +67,7 @@ function App() {
   return (
     <>
       <Clock />
-      <div className="padding secondary-container">
+      <div className="padding secondary-container" style={{ backdropFilter: "blur(10px)" }}>
         <summary className="center-align">
           {bigScore}
         </summary>
@@ -84,7 +84,7 @@ function App() {
         }
         </div>
 
-      <footer className="footer inverse-primary">
+      <footer className="footer inverse-primary" style={{borderRadius: "0 0 10px 10px"}}>
         <ScoreBoard score={score} />
       </footer>
     </>

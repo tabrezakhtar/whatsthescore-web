@@ -31,7 +31,7 @@ function Clock() {
   });
 
   return (
-    <div className="padding secondary center-align">
+    <div className="padding secondary center-align" style={{borderRadius: "10px 10px 0 0"}}>
       {time?.format("HH:mm:ss")}
     </div>
   )
