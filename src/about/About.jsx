@@ -1,6 +1,6 @@
 function About() {
   return (
-    <div className="about">
+    <div className="about secondary-container padding" style={{backdropFilter: "blur(10px)", borderRadius: "10px"}}>
       <p className="description">
         A simple score keeper app for forgetful tennis players!
       </p>

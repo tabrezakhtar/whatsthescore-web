@@ -15,7 +15,7 @@ function Matches() {
       <div className="scoreContainer row wrap">
         {
           matches.completedMatches.map(score => {
-            return <article key={score.id} className="scoreboard-border tertiary-container">
+            return <article key={score.id} className="scoreboard-border inverse-primary">
               <div>{new Date(score.startTime).toDateString()}</div>
               <div>{new Date(score.startTime).toLocaleTimeString()} to {new Date(score.endTime).toLocaleTimeString()}</div>
               <ScoreBoard score={score} />
