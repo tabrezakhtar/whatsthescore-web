@@ -14,7 +14,7 @@ function ScoreBoard({score}) {
   return (
     <div className="row no-space secondary margin" style={{alignSelf: "center"}}>
       <Players />
-      <div className="completed-set-container" style={{display: "flex"}}>{completedSets}</div>
+      <div className="completed-set-container surface-variant" style={{display: "flex"}}>{completedSets}</div>
       <CurrentSet games={score?.games}/>
     </div>
   )
