@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 function CompletedSet({set}) {
   const scoreLeftBorder = {
-    borderLeft: "2px solid white",
+    borderLeft: "2px solid yellow",
   }
 
   const tiebreak = {

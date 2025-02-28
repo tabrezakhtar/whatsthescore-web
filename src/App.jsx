@@ -53,8 +53,8 @@ function App() {
   }
 
   const bigScore = (score.gameWon || score.gameLost) ?
-    <h1 className="large" style={{fontSize: "10vw"}}>0 - 0</h1> :
-    <h1 className="large" style={{fontSize: "10vw"}}>{score.player1} - {score.player2}</h1>
+    <h1 className="large secondary-text" style={{fontSize: "10vw"}}>0 - 0</h1> :
+    <h1 className="large secondary-text" style={{fontSize: "10vw"}}>{score.player1} - {score.player2}</h1>
 
   const middleSection = matches.startTime ?
     <React.Fragment>
@@ -77,11 +77,16 @@ function App() {
         <div className="row middle-align">
           {middleSection}
         </div>
+
+        <div className="medium-space"></div>
+
         {showRhs &&
           <div className="row middle-align wrap">
-            <button className="small-margin" onClick={undoPoint}>Undo Point</button>
-            <button className="small-margin" onClick={reset}>Reset</button>
-            <button className="small-margin" onClick={endMatch}>Finish match</button>
+            <nav class="no-space">
+              <button className="primary left-round small" onClick={undoPoint}>Undo Point</button>
+              <button className="primary left-border no-round small" style={{borderLeft: "2px solid white", borderRight: "2px solid white"}} onClick={reset}>Reset</button>
+              <button className="primary right-round small" onClick={endMatch}>Finish match</button>
+            </nav>
           </div>
         }
       </div>

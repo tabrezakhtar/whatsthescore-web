@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 function CurrentSet({games}) {
   const scoreStyle = {
-    borderLeft: "2px solid white",
+    borderLeft: "2px solid yellow",
     fontWeight: "bold",
   }
 
