@@ -8,7 +8,6 @@ import { MatchesProvider } from "./context/matchesContext";
 import { StopWatchProvider } from "./context/stopWatchContext";
 import { MenuProvider } from "./context/menuContext";
 import "./colours.css";
-import Header from "./Header";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -16,8 +15,7 @@ createRoot(document.getElementById("root")).render(
       <MatchesProvider>
         <StopWatchProvider>
           <MenuProvider>
-            <main className="responsive">
-              <Header />
+            <main className="responsive no-padding">
               <div>
                 <Switch>
                   <Route exact path="/" component={App} />

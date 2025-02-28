@@ -1,7 +1,10 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 function Header() {
+    const location = useLocation();
+    const activeRoute = location.pathname;
+console.log(activeRoute)
     return (
         <header className="fixed no-padding">
             <nav className="l">

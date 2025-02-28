@@ -6,6 +6,7 @@ import ScoreBoard from "./scoreboard/ScoreBoard";
 import Clock from "./matches/lib/Clock";
 import { useMatches } from "./context/matchesContext";
 import { useStopWatch } from "./context/stopWatchContext";
+import Header from "./Header";
 
 function App() {
   const history = useHistory();
@@ -65,9 +66,10 @@ function App() {
   const showRhs = !!matches.startTime;
 
   return (
-    <>
+    <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", boxSizing: "border-box" }}>
+      <Header />
       <Clock />
-      <div className="padding secondary-container" style={{ backdropFilter: "blur(10px)" }}>
+      <div className="padding secondary-container" style={{ backdropFilter: "blur(10px)", flex: "1" }}>
         <summary className="center-align">
           {bigScore}
         </summary>
@@ -82,12 +84,12 @@ function App() {
             <button className="small-margin" onClick={endMatch}>Finish match</button>
           </div>
         }
-        </div>
+      </div>
 
-      <footer className="footer inverse-primary" style={{borderRadius: "0 0 10px 10px"}}>
+      <footer className="footer inverse-primary bottom-margin" style={{borderRadius: "0 0 10px 10px"}}>
         <ScoreBoard score={score} />
       </footer>
-    </>
+    </div>
   );
 };
 
