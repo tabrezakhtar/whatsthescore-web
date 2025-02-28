@@ -6,7 +6,11 @@ function Matches() {
   const { matches } = useMatches();
   let message = "";
   if (!matches.completedMatches.length) {
-    message = <h3>There are no completed matches.</h3>;
+    message = (
+      <div className="about secondary-container padding" style={{backdropFilter: "blur(10px)", borderRadius: "10px"}}>
+        <p className="description">There are no completed matches.</p>
+      </div>
+    );
   }
 
   return (
