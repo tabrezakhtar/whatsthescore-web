@@ -3,7 +3,7 @@ import Header from "../Header";
 const styles = {
   aboutContainer: {
     backdropFilter: "blur(10px)",
-    borderRadius: "10px"
+    borderRadius: "10px",
   }
 };
 
@@ -11,7 +11,7 @@ function About() {
   return (
     <>
       <Header />
-      <div className="about secondary-container padding" style={styles.aboutContainer}>
+      <div className="about secondary-container padding margin" style={styles.aboutContainer}>
         <p className="description">
           A simple score keeper app for forgetful tennis players!
         </p>

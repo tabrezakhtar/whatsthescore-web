@@ -13,7 +13,8 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     minHeight: "100vh",
-    boxSizing: "border-box"
+    boxSizing: "border-box",
+    padding: "0 15px"
   },
   paddingContainer: {
     backdropFilter: "blur(10px)",
