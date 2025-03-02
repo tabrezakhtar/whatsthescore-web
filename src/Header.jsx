@@ -9,7 +9,7 @@ function Header() {
     <header className="fixed no-padding">
       <nav className="l">
         <NavLink to="/"><img className="square small-padding" src="/tennis_racket.png" /></NavLink>
-        <h5 className="page right active no-margin l">whatsthescore</h5>
+        <h5 className="page right active no-margin l">whatsthescore🤔</h5>
         <div className="max"></div>
         <NavLink exact to="/">
           <button className="small-round large transparent no-margin l">
@@ -33,7 +33,7 @@ function Header() {
 
       <nav className="m no-margin padding">
         <NavLink to="/"><img className="square small-padding" src="/tennis_racket.png" /></NavLink>
-        <h5 className="page right active no-margin l">whatsthescore</h5>
+        <h5 className="page right active no-margin l">whatsthescore🤔</h5>
         <div className="max"></div>
         <NavLink exact to="/">
           <i className="fa-solid fa-house"></i>
@@ -68,7 +68,7 @@ function Header() {
           </menu>
         </button>
         <NavLink to="/"><img className="square" src="/tennis_racket.png" /></NavLink>
-        <h6 className="page right active no-margin l">whatsthescore</h6>
+        <h6 className="page right active no-margin l">whatsthescore🤔</h6>
       </nav>
     </header>
   );

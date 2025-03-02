@@ -7,7 +7,7 @@ import About from "./about/About";
 import { MatchesProvider } from "./context/matchesContext";
 import { StopWatchProvider } from "./context/stopWatchContext";
 import { MenuProvider } from "./context/menuContext";
-import "./colours.css";
+import "./style.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
