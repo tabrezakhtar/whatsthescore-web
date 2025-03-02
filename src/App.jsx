@@ -82,7 +82,7 @@ function App() {
 
         {showRhs &&
           <div className="row middle-align wrap">
-            <nav class="no-space vertical middle-align">
+            <nav className="no-space vertical middle-align">
               <button className="small-margin primary round small medium-elevate" onClick={undoPoint}>Undo Point</button>
               <button className="small-margin primary round small medium-elevate" onClick={reset}>Reset</button>
               <button className="small-margin primary round small medium-elevate" onClick={endMatch}>Finish match</button>

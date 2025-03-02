@@ -62,8 +62,23 @@ class Game {
     this.pointsIndex--;
     this.runningScore.pop();
 
-    this.player1 = this.runningScore[this.runningScore.length - 1].player1;
-    this.player1 = this.runningScore[this.runningScore.length - 1].player2;
+    if (this.player1 > 0) {
+      this.player1--;
+    }
+
+    if (this.player2 > 0) {
+      this.player2--;
+    }
+
+    if (this.tiebreak) {
+      if (this.player1Tiebreak > 0) {
+        this.player1Tiebreak--;
+      }
+      
+      if (this.player2Tiebreak > 0) {
+        this.player2Tiebreak--;
+      }
+    }
   }
 
   winPoint() {

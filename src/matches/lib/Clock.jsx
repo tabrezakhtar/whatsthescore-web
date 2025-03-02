@@ -6,7 +6,7 @@ import { useStopWatch } from "../../context/stopWatchContext";
 
 function Clock() {
   const { matches } = useMatches();
-  const { stopWatch } = useStopWatch();
+  const { stopWatch, updateStopWatch } = useStopWatch();
 
   const startTime = stopWatch.stopWatch;
   const [time, setTime] = useState(startTime);

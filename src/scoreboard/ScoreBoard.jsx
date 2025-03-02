@@ -22,7 +22,7 @@ function ScoreBoard({score}) {
 ScoreBoard.propTypes = {
   score: PropTypes.shape({
     sets: PropTypes.arrayOf(PropTypes.object),
-    games: PropTypes.arrayOf(PropTypes.object)
+    games: PropTypes.string
   })
 };
 
