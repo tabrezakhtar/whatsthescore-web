@@ -12,7 +12,7 @@ const styles = {
   container: {
     display: "flex",
     flexDirection: "column",
-    minHeight: "100vh",
+    minHeight: "100dvh",
     boxSizing: "border-box",
     padding: "0 15px"
   },
