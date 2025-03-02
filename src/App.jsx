@@ -8,6 +8,26 @@ import { useMatches } from "./context/matchesContext";
 import { useStopWatch } from "./context/stopWatchContext";
 import Header from "./Header";
 
+const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    minHeight: "100vh",
+    boxSizing: "border-box"
+  },
+  paddingContainer: {
+    backdropFilter: "blur(10px)",
+    flex: "1"
+  },
+  largeText: {
+    fontSize: "10vw",
+    cursor: "initial"
+  },
+  footer: {
+    borderRadius: "0 0 10px 10px"
+  }
+};
+
 function App() {
   const history = useHistory();
   const { matches, startMatch, addMatch, updateRunningScore, finishMatch } = useMatches();
@@ -37,7 +57,7 @@ function App() {
   function reset() {
     game.endGame();
     updateRunningScore(game.getRunningScore());
-    resetStopWatch
+    resetStopWatch();
   }
 
   function endMatch() {
@@ -49,27 +69,27 @@ function App() {
   }
 
   function start() {
-    startMatch()
+    startMatch();
   }
 
   const bigScore = (score.gameWon || score.gameLost) ?
-    <h1 className="large secondary-text" style={{fontSize: "10vw", cursor: "initial"}}>0 - 0</h1> :
-    <h1 className="large secondary-text" style={{fontSize: "10vw", cursor: "initial"}}>{score.player1} - {score.player2}</h1>
+    <h1 className="large secondary-text" style={styles.largeText}>0 - 0</h1> :
+    <h1 className="large secondary-text" style={styles.largeText}>{score.player1} - {score.player2}</h1>;
 
   const middleSection = matches.startTime ?
     <React.Fragment>
       <button type="button" disabled={isMatchDone} className="extra medium-elevate" onClick={losePoint}>-</button>
       <button type="button" disabled={isMatchDone} className="extra medium-elevate" onClick={winPoint}>+</button>
     </React.Fragment> :
-    <button type="button" className="extra medium-elevate" onClick={start}>Start</button>
+    <button type="button" className="extra medium-elevate" onClick={start}>Start</button>;
 
   const showRhs = !!matches.startTime;
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", boxSizing: "border-box" }}>
+    <div className="app-container" style={styles.container}>
       <Header />
       <Clock />
-      <div className="padding secondary-container" style={{ backdropFilter: "blur(10px)", flex: "1" }}>
+      <div className="padding secondary-container" style={styles.paddingContainer}>
         <summary className="center-align">
           {bigScore}
         </summary>
@@ -91,7 +111,7 @@ function App() {
         }
       </div>
 
-      <footer className="footer inverse-primary bottom-margin" style={{borderRadius: "0 0 10px 10px"}}>
+      <footer className="footer inverse-primary bottom-margin" style={styles.footer}>
         <ScoreBoard score={score} />
       </footer>
     </div>

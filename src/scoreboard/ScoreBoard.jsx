@@ -2,7 +2,15 @@ import Players from "./Players";
 import CurrentSet from "./CurrentSet";
 import CompletedSet from "./CompletedSet";
 import PropTypes from "prop-types";
-import "./scoreboard.css";
+
+const styles = {
+  row: {
+    alignSelf: "center"
+  },
+  completedSetContainer: {
+    display: "flex"
+  }
+};
 
 function ScoreBoard({score}) {
   const completedSets = score.sets
@@ -12,13 +20,16 @@ function ScoreBoard({score}) {
     : null;
 
   return (
-    <div className="row no-space secondary margin" style={{alignSelf: "center"}}>
+    <div className="row no-space secondary margin" style={styles.row}>
       <Players />
-      <div className="completed-set-container surface-variant" style={{display: "flex"}}>{completedSets}</div>
+      <div className="completed-set-container surface-variant" style={styles.completedSetContainer}>
+        {completedSets}
+      </div>
       <CurrentSet games={score?.games}/>
     </div>
   )
 }
+
 ScoreBoard.propTypes = {
   score: PropTypes.shape({
     sets: PropTypes.arrayOf(PropTypes.object),

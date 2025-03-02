@@ -1,15 +1,19 @@
 import PropTypes from "prop-types";
 
-function CompletedSet({set}) {
-  const scoreLeftBorder = {
+const styles = {
+  scoreLeftBorder: {
     borderLeft: "2px solid yellow",
-  }
-
-  const tiebreak = {
+  },
+  tiebreak: {
     fontSize: "0.6rem",
     marginTop: "-5px",
+  },
+  flexContainer: {
+    display: "flex",
   }
+};
 
+function CompletedSet({set}) {
   const isTiebreak = set.split(" ").length > 1;
   let p1Score = 0;
   let p2Score = 0;
@@ -29,12 +33,12 @@ function CompletedSet({set}) {
   }
 
   return (
-    <div className="set set-completed padding" style={scoreLeftBorder}>
-      <div style={{display: "flex"}}>
-        {p1Score} <span style={tiebreak}>{p1TbScore}</span>
+    <div className="set set-completed padding" style={styles.scoreLeftBorder}>
+      <div style={styles.flexContainer}>
+        {p1Score} <span style={styles.tiebreak}>{p1TbScore}</span>
       </div>
-      <div style={{display: "flex"}}>
-        {p2Score} <span style={tiebreak}>{p2TbScore}</span>
+      <div style={styles.flexContainer}>
+        {p2Score} <span style={styles.tiebreak}>{p2TbScore}</span>
       </div>
     </div>
   )

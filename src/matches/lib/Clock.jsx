@@ -4,6 +4,12 @@ import moment from "moment";
 import { useMatches } from "../../context/matchesContext";
 import { useStopWatch } from "../../context/stopWatchContext";
 
+const styles = {
+  clockContainer: {
+    borderRadius: "10px 10px 0 0"
+  }
+};
+
 function Clock() {
   const { matches } = useMatches();
   const { stopWatch, updateStopWatch } = useStopWatch();
@@ -31,7 +37,7 @@ function Clock() {
   });
 
   return (
-    <div className="padding secondary center-align" style={{borderRadius: "10px 10px 0 0"}}>
+    <div className="padding secondary center-align" style={styles.clockContainer}>
       {time?.format("HH:mm:ss")}
     </div>
   )

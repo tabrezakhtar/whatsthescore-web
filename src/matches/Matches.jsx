@@ -3,12 +3,19 @@ import PropTypes from "prop-types";
 import { useMatches } from "../context/matchesContext";
 import Header from "../Header";
 
+const styles = {
+  noMatchesMessage: {
+    backdropFilter: "blur(10px)",
+    borderRadius: "10px"
+  }
+};
+
 function Matches() {
   const { matches } = useMatches();
   let message = "";
   if (!matches.completedMatches.length) {
     message = (
-      <div className="about secondary-container padding" style={{backdropFilter: "blur(10px)", borderRadius: "10px"}}>
+      <div className="about secondary-container padding" style={styles.noMatchesMessage}>
         <p className="description">There are no completed matches.</p>
       </div>
     );
