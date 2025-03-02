@@ -68,7 +68,7 @@ function Header() {
           </menu>
         </button>
         <NavLink to="/"><img className="square" src="/tennis_racket.png" /></NavLink>
-        <h6 className="page right active no-margin l">whatsthescore🤔</h6>
+        <h6 className="page right active no-margin small">whatsthescore🤔</h6>
       </nav>
     </header>
   );
