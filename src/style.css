@@ -1,10 +1,10 @@
 :root,
 body.light {
-  --primary: #cfbcff;
-  --on-primary: #381e72;
+  --primary: #266AD5;
+  --on-primary: #d2d1d4;
   --primary-container: #4f378a;
   --on-primary-container: #e9ddff;
-  --secondary: #cbc2db;
+  --secondary: #fff4e8;
   --on-secondary: #332d41;
   --secondary-container: #4a445880;
   --on-secondary-container: #e8def8;

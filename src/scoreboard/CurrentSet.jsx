@@ -18,11 +18,11 @@ function CurrentSet({ games }) {
   }
 
   return (
-    <div className="container" style={styles.container}>
-      <div className="score" style={styles.score}>
+    <div className="padding" style={styles.container}>
+      <div style={styles.score}>
         {p1Score}
       </div>
-      <div className="score" style={styles.score}>
+      <div style={styles.score}>
         {p2Score}
       </div>
     </div>
