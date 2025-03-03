@@ -1,8 +1,19 @@
-# React + Vite
+# whatsthescore
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img src="https://gitlab.com/tabrezakhtar/whatsthescore-web/-/raw/master/public/whatsthescore.png](https://raw.githubusercontent.com/tabrezakhtar/whatsthescore-web/refs/heads/master/public/whatsthescore2025.png" alt="Image of tennis app" height="400px"/>
 
-Currently, two official plugins are available:
+A simple score keeper app for forgetful tennis players!  Built with React and Sass.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To run the app:
+
+`npm install`
+
+`npm start`
+
+The app will run on port 3000.
+
+Open `localhost:3000` to run the app.
+
+To run the tests:
+
+`npm run tests`
