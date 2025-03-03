@@ -1,6 +1,6 @@
 # whatsthescore
 
-<img src="https://gitlab.com/tabrezakhtar/whatsthescore-web/-/raw/master/public/whatsthescore.png](https://raw.githubusercontent.com/tabrezakhtar/whatsthescore-web/refs/heads/master/public/whatsthescore2025.png" alt="Image of tennis app" height="400px"/>
+<img src="https://raw.githubusercontent.com/tabrezakhtar/whatsthescore-web/refs/heads/master/public/whatsthescore2025.png" alt="Image of tennis app" height="400px"/>
 
 A simple score keeper app for forgetful tennis players!  Built with React and Sass.
 
