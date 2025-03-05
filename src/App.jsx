@@ -79,10 +79,10 @@ function App() {
 
   const middleSection = matches.startTime ?
     <React.Fragment>
-      <button type="button" disabled={isMatchDone} className="extra medium-elevate" onClick={losePoint}>-</button>
-      <button type="button" disabled={isMatchDone} className="extra medium-elevate" onClick={winPoint}>+</button>
+      <button type="button" disabled={isMatchDone} className="extra medium-elevate surface-container" onClick={losePoint}>-</button>
+      <button type="button" disabled={isMatchDone} className="extra medium-elevate surface-container" onClick={winPoint}>+</button>
     </React.Fragment> :
-    <button type="button" className="extra medium-elevate" onClick={start}>Start</button>;
+    <button type="button" className="extra medium-elevate surface-container" onClick={start}>Start</button>;
 
   const showRhs = !!matches.startTime;
 
@@ -104,9 +104,9 @@ function App() {
         {showRhs &&
           <div className="row middle-align wrap">
             <nav className="no-space vertical middle-align">
-              <button className="small-margin primary round small medium-elevate" onClick={undoPoint}>Undo Point</button>
-              <button className="small-margin primary round small medium-elevate" onClick={reset}>Reset</button>
-              <button className="small-margin primary round small medium-elevate" onClick={endMatch}>Finish match</button>
+              <button className="small-margin surface-container round small medium-elevate" onClick={undoPoint}>Undo Point</button>
+              <button className="small-margin surface-container round small medium-elevate" onClick={reset}>Reset</button>
+              <button className="small-margin surface-container round small medium-elevate" onClick={endMatch}>Finish match</button>
             </nav>
           </div>
         }
