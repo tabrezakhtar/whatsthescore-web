@@ -11,25 +11,27 @@ const styles = {
 };
 
 function Matches() {
-  const { matches } = useMatches();
-  let message = "";
+  const { matches, clear } = useMatches();
+  let notification = "";
   if (!matches.completedMatches.length) {
-    message = (
+    notification = (
       <div className="about secondary-container padding" style={styles.noMatchesMessage}>
         <p className="description">There are no completed matches.</p>
       </div>
     );
+  } else {
+    notification = <button type="button" className="extra medium-elevate surface-container" onClick={clear}>Clear Data</button>
   }
 
   return (
     <>
       <Header />
       <div className="matches padding">
-        {message}
+        {notification}
         <div className="scoreContainer row wrap">
           {
-            matches.completedMatches.map(score => {
-                return <article key={score.id} className="scoreboard-border inverse-primary white-text">
+            matches.completedMatches.map( (score, index) => {
+                return <article key={index} className="scoreboard-border inverse-primary white-text">
                 <div>{new Date(score.startTime).toDateString()}</div>
                 <div>{new Date(score.startTime).toLocaleTimeString()} to {new Date(score.endTime).toLocaleTimeString()}</div>
                 <ScoreBoard score={score} />

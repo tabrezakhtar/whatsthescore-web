@@ -1,5 +1,6 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import localforage from "localforage";
 
 export const initialState = {
   completedMatches: [],
@@ -16,7 +17,27 @@ const MatchesProvider = ({ children }) => {
   console.log("MatchesProvider called")
   const [matches, setMatches] = useState(initialState);
 
+  useEffect(() => {
+    const loadMatches = async () => {
+      const storedMatches = await localforage.getItem("matches");
+      if (storedMatches) {
+        setMatches(storedMatches);
+      }
+    };
+
+    loadMatches();
+  }, []);
+
+  useEffect(() => {
+    const saveMatches = async () => {
+      await localforage.setItem("matches", matches);
+    };
+
+    saveMatches();
+  }, [matches]);
+
   const startMatch = () => {
+    //grab from localstorage
     setMatches((matches) => ({ ...matches, startTime: Date.now() }));
   };
 
@@ -34,7 +55,9 @@ const MatchesProvider = ({ children }) => {
     }));
   };
 
-  const finishMatch = () => {
+  const finishMatch = async () => {
+    // Save to localforage
+    await localforage.setItem("matches", matches);
     setMatches((matches) => ({
       ...matches,
       runningScore: {
@@ -45,7 +68,12 @@ const MatchesProvider = ({ children }) => {
     }));
   };
 
-  const value = { matches, startMatch, addMatch, updateRunningScore, finishMatch };
+  const clear = async () => {
+    await localforage.clear();
+    setMatches(initialState);
+  };
+
+  const value = { matches, clear, startMatch, addMatch, updateRunningScore, finishMatch };
   
   return <MatchesContext.Provider value={value}>{children}</MatchesContext.Provider>;
 }
