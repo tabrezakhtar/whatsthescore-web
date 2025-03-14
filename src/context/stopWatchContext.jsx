@@ -40,6 +40,5 @@ const useStopWatch = () => {
   return value;
 };
 
-
 export { StopWatchProvider, StopWatchContext, useStopWatch };
 

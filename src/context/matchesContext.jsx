@@ -37,7 +37,6 @@ const MatchesProvider = ({ children }) => {
   }, [matches]);
 
   const startMatch = () => {
-    //grab from localstorage
     setMatches((matches) => ({ ...matches, startTime: Date.now() }));
   };
 
